@@ -1,0 +1,232 @@
+<html><!--
+* PyWebCopy Engine [version 7.0.2]
+* Copyright 2020; Raja Tomar
+* File mirrored from [http://bigor.bmstu.ru/?cnt/?doc=OP2/incremeny.mod/?cou=OP2/OP_T.cou]
+* At UTC datetime: [2022-12-17 23:16:47.583762]
+--><head><title>&#206;&#239;&#229;&#240;&#224;&#246;&#232;&#232; &#232;&#237;&#234;&#240;&#229;&#236;&#229;&#237;&#242;&#224;&#246;&#232;&#232; &#232; &#228;&#229;&#234;&#240;&#229;&#236;&#229;&#237;&#242;&#224;&#246;&#232;&#232;</title>
+<meta name="Author" content="&#212;&#229;&#228;&#238;&#240;&#243;&#234; &#197;.&#194;.">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="Robots" content="index, nofollow">
+
+<script language="JavaScript">
+function feedback(act, txt) {
+document.forms['FBForm'].action='/?'+act+'/?'+document.location.href;
+document.getElementById('FB').value=txt;
+document.forms['FBForm'].submit(); }
+
+function on(obj) { obj.style.textDecoration='underline'; }
+function off(obj) { obj.style.textDecoration='none'; }
+
+function imgscale(img, k) { img.width=img.width*k; }
+
+var cs=null;
+function selStop() { if(document.selection != null) cs=document.selection.createRange(); }
+function selStart() { cs=null; }
+
+function termSearch() { if(cs == null || cs.text.length == 0) feedback('sht',''); else { cs.select(); feedback('sht',cs.text); } cs=null; }
+function termInfo(txt) { feedback('trm',txt); } function termInfoExt(txt) { feedback('tre',txt); }
+
+function jobchange(cb) {
+document.getElementById('ChJob').value=(cb.checked ? '+':'-')+' '+cb.id;
+document.forms['FJob'].submit(); }
+
+function jobchangeall(cb) {
+document.getElementById('ChGrJob').value=cb.id+' '+document.location.href;
+document.forms['FGrJob'].action += document.location.href+'#S'+document.body.scrollTop;
+document.forms['FGrJob'].submit(); }
+
+function iniscroll() {
+var s = new String(document.location.hash); if(s.length < 3 || s.charAt(1) != new String('S')) return;
+document.body.scrollTop = s.substring(2); }
+
+var bx=0, by=0, bw=0, bh=0;
+var box=null, tit=null, txt=null;
+var his=null;
+var dx=0, dy=0, dflg=0;
+
+function puInit() { 
+box=document.getElementById('PopUp'); 
+tit=document.getElementById('PopUpTitle'); 
+txt=document.getElementById('PopUpText');
+puClose(); tit.style.cursor='default';
+bw = document.body.scrollWidth*0.55; if(bw < 350) bw = 350;
+bx = (document.body.scrollWidth-bw)/2-3; by=50;
+txt.style.width=bw; box.style.top=-1000;
+if(box.filters != null) box.style.filter='revealtrans(transition=1)'; }
+
+function puClose() {
+if(box == null) return;
+dFlg=0; txt.style.height=80; his=null;
+box.style.top=-1000;
+box.style.visibility='hidden'; }
+
+function puOpen() {
+if(box == null) return;
+if(box.filters != null && his == null) box.filters.item(0).Apply();
+dFlg=0;
+var v = ''; var t = new String(FPopUp.document.title);
+if(t == null || t.length == 0) { document.location.href=new String(document.location.href); return; }
+if(t.charAt(0) == '!') { t = t.substring(1); v = 'hidden'; }
+document.getElementById('PopUpBack').style.visibility = v; 
+document.getElementById('PopUpForw').style.visibility = v;
+tit.innerHTML=t;
+bh = FPopUp.document.body.scrollHeight+6; if(bh > 500) bh = 500; else if(bh < 100) bh = 100;
+txt.style.height=bh;
+box.style.left=document.body.scrollLeft+bx; 
+box.style.top=document.body.scrollTop+by;
+box.style.visibility='visible';
+if(box.filters != null && his == null) box.filters.item(0).play(0.3);
+if(his == null) his=FPopUp.document.location.href; }
+
+function puScroll() {
+if(his == null) return;
+box.style.left=document.body.scrollLeft+bx;
+box.style.top=document.body.scrollTop+by; }
+
+function puForw() {
+FPopUp.history.forward(); }
+
+function puBack() {
+if(FPopUp.document.location.href == his) return;
+FPopUp.history.back(); }
+
+function puMove(ev) {
+if(dflg == 0) return;
+bx = bx+(ev.screenX-dx); box.style.left=document.body.scrollLeft+bx; dx=ev.screenX;
+by = by+(ev.screenY-dy); box.style.top=document.body.scrollTop+by; dy=ev.screenY;
+ev.cancelBubble=true; }
+
+function puStart(ev) {
+if(ev.button > 1) return;
+dflg=1; tit.style.cursor='move';
+dx=ev.screenX; dy=ev.screenY; }
+
+function puStop() {
+tit.style.cursor='default'; dflg=0; }
+
+</script>
+<style type="text/css">
+.menu { padding-left:6px; padding-right:6px; }
+.menuLnk { color:#000000; font-family:sans-serif; font-size:12px; text-decoration:none; }
+.puTitle { background-color:#7070FF; text-align:center; height:21px; margin-top:1px; font-family:sans-serif; font-weight:bold; color:white; font-size:15px; letter-spacing:1px; }
+.eTermI { font-size:100%; color:#0000FF; text-decoration:none; }
+.eExample { font-size:90%; font-family:verdana,sans-serif; margin-left:9.0pt; text-align:justify; margin-bottom:7pt; }
+.dModul { font-size:15.0px; font-family:verdana,sans-serif; text-indent:25.0px; margin-left:6pt; margin-right:6pt; text-align:justify; }
+.eLModul { font-size:13.5pt; color:#B200B2; font-family:serif; font-weight:bold; margin-left:4px; text-align:left; text-decoration:none; }
+.eTermO { font-size:100%; color:#FF0000; letter-spacing:1px; font-style:italic; text-decoration:none; }
+.auto { font-size:12.5pt; text-indent:0pt; font-family:serif; font-weight:bold; font-style:normal; margin-top:10pt; margin-bottom:4pt; margin-left:30.0pt; }
+.eTitleModul { font-size:25.5pt; color:#0000FF; text-align:center; font-family:serif; font-weight:bold; margin-bottom:8pt; margin-top:0pt; text-indent:0pt; text-decoration:none; }
+.eOperator { font-family:monospace; font-weight:bold; font-style:normal; font-size:115%; }
+.eListing { font-family:monospace; font-weight:bold; font-style:normal; font-size:115%; text-indent:0pt; padding-left:20pt; margin-top:5pt; margin-bottom:4pt; }
+</style>
+</head>
+<body topmargin="10" bottommargin="10" leftmargin="10" rightmargin="10" onload="puInit()" onresize="puInit()" onscroll="puScroll()" onmousemove="puMove(event)" onmouseup="puStop()">
+
+<table bgcolor="#7070FF" border="1" id="PopUp" style="visibility:hidden; position:absolute"><tr><td>
+<a id="PopUpBack" href="javascript:puBack()"><img hspace="1" vspace="1" border="0" src="./asr_HTML_Back.gif.gif" align="left" alt="&#1053;&#1072;&#1079;&#1072;&#1076;"></a>
+<a id="PopUpForw" href="javascript:puForw()"><img hspace="1" vspace="1" border="0" src="./asr_HTML_Forw.gif.gif" align="left" alt="&#1042;&#1087;&#1077;&#1088;&#1077;&#1076;"></a>
+<a href="javascript:puClose()"><img hspace="1" vspace="1" border="0" src="./asr_HTML_Close.gif.gif" align="right" alt="&#1047;&#1072;&#1082;&#1088;&#1099;&#1090;&#1100;"></a>
+<div id="PopUpTitle" onmousedown="puStart(event)" class="puTitle"></div>
+</td></tr><tr><td>
+<iframe name="FPopUp" id="PopUpText" frameborder="no" scroll="auto" onload="puOpen()"></iframe>
+</td></tr></table>
+
+<div style="display:none">
+<form name="FBForm" method="POST" target="FPopUp">
+<input type="HIDDEN" id="FB" name="FB">
+</form></div>
+
+<div style="display:none">
+<form name="FJob" method="POST" action="./jad">
+<input type="TEXT" id="ChJob" name="JText">
+</form></div>
+
+<div style="display:none">
+<form name="FGrJob" method="POST" action="./1557202953">
+<input type="TEXT" id="ChGrJob" name="JText">
+</form></div>
+
+<div id="Content" onmousedown="puClose()">
+<noindex>
+<center><table border="0" cellspacing="0" cellpadding="0"><tr align="center" valign="top">
+<td class="menu"><a class="menuLnk" href="./1557202953"><img border="0" src="./asr_HTML_Home.gif.gif"><br>&#1043;&#1083;&#1072;&#1074;&#1085;&#1072;&#1103; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1072;</a></td><td>
+</td><td class="menu"><a class="menuLnk" href="./cnt__doc_OP2_OP_T.cou"><img border="0" src="./asr_HTML_Content.gif.gif"><br>&#1054;&#1075;&#1083;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1082;&#1091;&#1088;&#1089;&#1072;</a></td>
+<td class="menu"><a class="menuLnk" href="./cnt__doc_OP2_preob_pris.mod__cou_OP2_OP_T.cou"><img border="0" src="./asr_HTML_ModulBack.gif.gif"><br>&#1055;&#1088;&#1077;&#1076;&#1099;&#1076;&#1091;&#1097;&#1080;&#1081; &#1084;&#1086;&#1076;&#1091;&#1083;&#1100;</a></td>
+<td class="menu"><a class="menuLnk" href="./cnt__doc_OP2_test_increment.tst__cou_OP2_OP_T.cou"><img border="0" src="./asr_HTML_ModulForw.gif.gif"><br>&#1057;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1081; &#1084;&#1086;&#1076;&#1091;&#1083;&#1100;</a></td>
+<td class="menu"><a class="menuLnk" href="javascript:termSearch()"><img border="0" src="./asr_HTML_TSearch.gif.gif"><br>&#1055;&#1086;&#1080;&#1089;&#1082; &#1090;&#1077;&#1088;&#1084;&#1080;&#1085;&#1086;&#1074;</a></td><td>
+</td><td class="menu"><a class="menuLnk" href="./sty__cnt__doc_OP2_incremeny.mod__cou_OP2_OP_T.cou__bck_OP2_incremeny.mod" target="FPopUp"><img border="0" src="./asr_HTML_Setup.gif.gif"><br>&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1080;</a></td><td>
+</td><td class="menu"><a class="menuLnk" href="/?cnt/?prn=y/?doc=OP2/incremeny.mod"><img border="0" src="/?asr/HTML_Print.gif"><br>&#1042;&#1077;&#1088;&#1089;&#1080;&#1103; &#1076;&#1083;&#1103; &#1087;&#1077;&#1095;&#1072;&#1090;&#1080;</a></td><td>
+</td></tr></table></center>
+</noindex>
+<hr width="90%">
+<div onmouseup="selStop()" onmouseout="selStop()" onmousedown="selStart()" class="dModul">
+<div class="eTitleModul"><a class="eTitleModul" target="FPopUp" href="/?met/?doc=OP2/incremeny.mod/?cou=OP2/OP_T.cou/?bck=OP2/incremeny.mod" onmouseover="on(this)" onmouseout="off(this)" title="&#1055;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1072;&#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;">&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1080;&#1085;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; &#1080; &#1076;&#1077;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080;</a>
+</div>
+<a name="T2042524345"></a>
+<div>&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1080;&#1085;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; &#1080; &#1076;&#1077;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; &#1103;&#1074;&#1083;&#1103;&#1102;&#1090;&#1089;&#1103; <a href="javascript:termInfo(%22%D1%83%D0%BD%D0%B0%D1%80%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%D0%BC%D0%B8%22)" class="eTermI" onmouseover="on(this)" onmouseout="off(this)">&#1091;&#1085;&#1072;&#1088;&#1085;&#1099;&#1084;&#1080; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;&#1084;&#1080;</a>, &#1090;&#1086; &#1077;&#1089;&#1090;&#1100; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;&#1084;&#1080;, &#1080;&#1084;&#1077;&#1102;&#1097;&#1080;&#1084;&#1080; &#1086;&#1076;&#1080;&#1085; &#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;.</div>
+<div><span class="eOperator">&#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;++</span></div>
+<div><span class="eOperator">++&#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;</span></div>
+<a name="T1747189769"></a>
+<div><a href="javascript:termInfo(%22%D0%B8%D0%BD%D0%BA%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D0%B8%22)" class="eTermO" onmouseover="on(this)" onmouseout="off(this)">&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103; &#1080;&#1085;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080;</a> <span class="eOperator">++ </span>&#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090; &#1082; &#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;&#1091; &#1077;&#1076;&#1080;&#1085;&#1080;&#1094;&#1091;.</div>
+<div><span class="eOperator">&#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;--</span></div>
+<div><span class="eOperator">--&#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;</span></div>
+<a name="T1606239493"></a>
+<div><a href="javascript:termInfo(%22%D0%B4%D0%B5%D0%BA%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D0%B8%22)" class="eTermO" onmouseover="on(this)" onmouseout="off(this)">&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103; &#1076;&#1077;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080;</a> <span class="eOperator">--</span> &#1074;&#1099;&#1095;&#1080;&#1090;&#1072;&#1077;&#1090; &#1080;&#1079; &#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;&#1072; &#1077;&#1076;&#1080;&#1085;&#1080;&#1094;&#1091;.</div>
+<a name="T708113156"></a>
+<div>&#1054;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;&#1086;&#1084; &#1084;&#1086;&#1078;&#1077;&#1090; &#1073;&#1099;&#1090;&#1100; <a href="javascript:termInfo(%22%D0%B8%D0%BC%D0%B5%D0%BD%D1%83%D1%8E%D1%89%D0%B5%D0%B5%20%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%22)" class="eTermI" onmouseover="on(this)" onmouseout="off(this)">&#1080;&#1084;&#1077;&#1085;&#1091;&#1102;&#1097;&#1077;&#1077; &#1074;&#1099;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077;</a>, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1080;&#1084;&#1103; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086;&#1081;.</div>
+<a name="T424168142"></a>
+<div>&#1055;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090; &#1101;&#1090;&#1080;&#1093; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1081; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; <a href="javascript:termInfo(%22%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B5%D0%B9%20%D0%BF%D1%80%D0%B8%D0%BE%D1%80%D0%B8%D1%82%D0%B5%D1%82%D0%BE%D0%B2%22)" class="eTermI" onmouseover="on(this)" onmouseout="off(this)">&#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1077;&#1081; &#1087;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;&#1086;&#1074;</a> &#1103;&#1079;&#1099;&#1082;&#1072; &#1057;&#1080; (<a class="eLModul" href="/?cnt/?doc=OP2/priorety.mod/?cou=OP2/OP_T.cou/?bck=OP2/incremeny.mod" onmouseover="on(this)" onmouseout="off(this)" title="&#1054;&#1090;&#1082;&#1088;&#1099;&#1090;&#1100; &#1091;&#1095;&#1077;&#1073;&#1085;&#1099;&#1081; &#1084;&#1086;&#1076;&#1091;&#1083;&#1100;">&#1055;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;&#1099; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1081;</a>).</div>
+<div>&#1057;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1077; &#1090;&#1088;&#1080; &#1089;&#1090;&#1088;&#1086;&#1082;&#1080; &#1091;&#1074;&#1077;&#1083;&#1080;&#1095;&#1080;&#1074;&#1072;&#1102;&#1090; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1091;&#1102; <span class="eOperator">x</span> &#1085;&#1072; 1:</div>
+<pre class="eListing">x = x + 1;
+++x;
+x++;
+</pre>
+<a name="T100018855"></a>
+<a name="T2009635419"></a>
+<div>&#1054;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1080;&#1085;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; &#1080; &#1076;&#1077;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; &#1080;&#1084;&#1077;&#1102;&#1090; <a href="javascript:termInfo(%22%D0%BF%D1%80%D0%B5%D1%84%D0%B8%D0%BA%D1%81%D0%BD%D0%B0%D1%8F%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0%22)" class="eTermO" onmouseover="on(this)" onmouseout="off(this)">&#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089;&#1085;&#1091;&#1102;</a> (<span class="eOperator">++x, --x</span> ) &#1080; <a href="javascript:termInfo(%22%D0%BF%D0%BE%D1%81%D1%82%D1%84%D0%B8%D0%BA%D1%81%D0%BD%D0%B0%D1%8F%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0%22)" class="eTermO" onmouseover="on(this)" onmouseout="off(this)">&#1087;&#1086;&#1089;&#1090;&#1092;&#1080;&#1082;&#1089;&#1085;&#1091;&#1102;</a> (<span class="eOperator">x++, x--</span>) &#1092;&#1086;&#1088;&#1084;&#1091; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;. &#1054;&#1085;&#1080; &#1091;&#1076;&#1086;&#1073;&#1085;&#1099; &#1087;&#1088;&#1080; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1080; &#1074; &#1073;&#1086;&#1083;&#1077;&#1077; &#1089;&#1083;&#1086;&#1078;&#1085;&#1099;&#1093;, &#1095;&#1077;&#1084; &#1087;&#1088;&#1080;&#1074;&#1077;&#1076;&#1077;&#1085;&#1085;&#1099;&#1081; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, <a href="javascript:termInfo(%22%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D1%85%22)" class="eTermI" onmouseover="on(this)" onmouseout="off(this)">&#1074;&#1099;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;&#1093;</a>.</div>
+<div> &#1055;&#1088;&#1080; &#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089;&#1085;&#1086;&#1081; &#1092;&#1086;&#1088;&#1084;&#1077; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076; &#1091;&#1074;&#1077;&#1083;&#1080;&#1095;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1080;&#1083;&#1080; &#1091;&#1084;&#1077;&#1085;&#1100;&#1096;&#1072;&#1077;&#1090;&#1089;&#1103; &#1089;&#1088;&#1072;&#1079;&#1091; &#1078;&#1077;, &#1072; &#1087;&#1086;&#1089;&#1083;&#1077; &#1101;&#1090;&#1086;&#1075;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103;.</div>
+<div class="auto">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; 1</div>
+<div class="eExample"><pre class="eListing">x = 3;
+y = ++x;
+</pre>
+<div>&#1055;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1072;&#1103;<span class="eOperator"> &#1093;</span> &#1089;&#1088;&#1072;&#1079;&#1091; &#1078;&#1077; &#1091;&#1074;&#1077;&#1083;&#1080;&#1095;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1076;&#1086; 4 &#1080; &#1101;&#1090;&#1086; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; &#1087;&#1088;&#1080;&#1089;&#1074;&#1072;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086;&#1081; <span class="eOperator">y</span>.</div>
+</div>
+<div>&#1055;&#1088;&#1080;  &#1087;&#1086;&#1089;&#1090;&#1092;&#1080;&#1082;&#1089;&#1085;&#1086;&#1081; &#1092;&#1086;&#1088;&#1084;&#1077; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076; &#1091;&#1074;&#1077;&#1083;&#1080;&#1095;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1080;&#1083;&#1080; &#1091;&#1084;&#1077;&#1085;&#1100;&#1096;&#1072;&#1077;&#1090;&#1089;&#1103; &#1087;&#1086;&#1089;&#1083;&#1077; &#1090;&#1086;&#1075;&#1086;, &#1082;&#1072;&#1082; &#1086;&#1085; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103;.</div>
+<div class="auto">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; 2</div>
+<div class="eExample"><pre class="eListing">x = 3;
+y = x++;
+</pre>
+<div>&#1055;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086;&#1081; <span class="eOperator">y</span> &#1087;&#1088;&#1080;&#1089;&#1074;&#1072;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; 3, &#1072; &#1079;&#1072;&#1090;&#1077;&#1084; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1072;&#1103; <span class="eOperator">&#1093;</span> &#1091;&#1074;&#1077;&#1083;&#1080;&#1095;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1076;&#1086; 4.</div>
+</div>
+<div>&#1069;&#1090;&#1080; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1102;&#1090;&#1089;&#1103; &#1076;&#1083;&#1103; &#1089;&#1086;&#1082;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1103; &#1090;&#1077;&#1082;&#1089;&#1090;&#1072; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099; &#1080; &#1086;&#1073;&#1083;&#1077;&#1075;&#1095;&#1077;&#1085;&#1080;&#1103; &#1085;&#1072;&#1073;&#1086;&#1088;&#1072; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099; &#1089; &#1082;&#1083;&#1072;&#1074;&#1080;&#1072;&#1090;&#1091;&#1088;&#1099;, &#1080; &#1076;&#1083;&#1103; &#1073;&#1086;&#1083;&#1100;&#1096;&#1080;&#1085;&#1089;&#1090;&#1074;&#1072; &#1082;&#1086;&#1084;&#1087;&#1100;&#1102;&#1090;&#1077;&#1088;&#1086;&#1074; &#1087;&#1086;&#1074;&#1099;&#1096;&#1072;&#1102;&#1090; &#1101;&#1092;&#1092;&#1077;&#1082;&#1090;&#1080;&#1074;&#1085;&#1086;&#1089;&#1090;&#1100; &#1088;&#1072;&#1073;&#1086;&#1090;&#1099; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099;. &#1054;&#1085;&#1080; &#1095;&#1072;&#1089;&#1090;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1102;&#1090;&#1089;&#1103; &#1076;&#1083;&#1103; &#1091;&#1074;&#1077;&#1083;&#1080;&#1095;&#1077;&#1085;&#1080;&#1103; &#1080;&#1083;&#1080; &#1091;&#1084;&#1077;&#1085;&#1100;&#1096;&#1077;&#1085;&#1080;&#1103; &#1080;&#1085;&#1076;&#1077;&#1082;&#1089;&#1072; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072; &#1087;&#1088;&#1080; &#1087;&#1077;&#1088;&#1077;&#1073;&#1086;&#1088;&#1077; &#1077;&#1075;&#1086; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074;.</div>
+<div>&#1053;&#1086; &#1087;&#1088;&#1080; &#1088;&#1072;&#1073;&#1086;&#1090;&#1077; &#1089; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1103;&#1084;&#1080; &#1080;&#1085;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; &#1080; &#1076;&#1077;&#1082;&#1088;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; &#1085;&#1072;&#1076;&#1086; &#1073;&#1099;&#1090;&#1100; &#1086;&#1089;&#1090;&#1086;&#1088;&#1086;&#1078;&#1085;&#1099;&#1084;&#1080;: &#1080;&#1093; &#1086;&#1087;&#1077;&#1088;&#1072;&#1085;&#1076;, &#1103;&#1074;&#1083;&#1103;&#1102;&#1097;&#1080;&#1081;&#1089;&#1103; &#1080;&#1084;&#1077;&#1085;&#1091;&#1102;&#1097;&#1080;&#1084; &#1074;&#1099;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077;&#1084;, &#1085;&#1077; &#1089;&#1083;&#1077;&#1076;&#1091;&#1077;&#1090; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1073;&#1086;&#1083;&#1077;&#1077; &#1086;&#1076;&#1085;&#1086;&#1075;&#1086; &#1088;&#1072;&#1079;&#1072; &#1074; &#1086;&#1076;&#1085;&#1086;&#1084; &#1080; &#1090;&#1086;&#1084; &#1078;&#1077; &#1074;&#1099;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1080;.</div>
+<div class="auto">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; 3</div>
+<div class="eExample"><pre class="eListing">/*&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1087;&#1083;&#1086;&#1093;&#1086;&#1075;&#1086; &#1089;&#1090;&#1080;&#1083;&#1103;:*/
+array[num] = ++num;
+</pre>
+<div>&#1056;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1077; &#1082;&#1086;&#1084;&#1087;&#1080;&#1083;&#1103;&#1090;&#1086;&#1088;&#1099; &#1084;&#1086;&#1075;&#1091;&#1090; &#1080;&#1085;&#1090;&#1077;&#1088;&#1087;&#1088;&#1077;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1101;&#1090;&#1086; &#1074;&#1099;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077; &#1087;&#1086;-&#1088;&#1072;&#1079;&#1085;&#1086;&#1084;&#1091; &#1080; &#1085;&#1077;&#1083;&#1100;&#1079;&#1103; &#1090;&#1086;&#1095;&#1085;&#1086; &#1089;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100;, &#1082;&#1072;&#1082;&#1086;&#1081; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090; &#1073;&#1091;&#1076;&#1077;&#1090; &#1087;&#1086;&#1083;&#1091;&#1095;&#1077;&#1085;. &#1042;&#1086;&#1079;&#1100;&#1084;&#1080;&#1090;&#1077; &#1089;&#1077;&#1073;&#1077; &#1079;&#1072; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1086;: &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1091;&#1102;, &#1091;&#1074;&#1077;&#1083;&#1080;&#1095;&#1080;&#1074;&#1072;&#1077;&#1084;&#1091;&#1102; &#1080;&#1083;&#1080; &#1091;&#1084;&#1077;&#1085;&#1100;&#1096;&#1072;&#1077;&#1084;&#1091;&#1102; &#1074; &#1076;&#1072;&#1085;&#1085;&#1086;&#1084; &#1074;&#1099;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1080;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1074; &#1085;&#1077;&#1084; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1086;&#1076;&#1080;&#1085; &#1088;&#1072;&#1079;.</div>
+</div>
+<div class="auto">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; 4</div>
+<div class="eExample"><pre class="eListing">/*&#1041;&#1086;&#1083;&#1077;&#1077; &#1103;&#1089;&#1085;&#1099;&#1081; &#1089;&#1090;&#1080;&#1083;&#1100;:*/
+array[num] = num + 1;
+++num;
+</pre>
+</div>
+<div class="auto">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; 5</div>
+<div class="eExample"><pre class="eListing">i = 0;
+while (i &lt; size)
+   {
+    table[i] = 0;
+    i = i+1;
+   }
+</pre>
+</div>
+<div class="auto">&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; 6</div>
+<div class="eExample"><pre class="eListing">/*&#1069;&#1082;&#1074;&#1080;&#1074;&#1072;&#1083;&#1077;&#1085;&#1090;&#1085;&#1099;&#1081; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088;&#1091; 5*/
+i = 0;
+while (i &lt; size)
+    table[i++] = 0;
+</pre>
+</div>
+</div>
+</div></body></html>

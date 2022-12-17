@@ -1,0 +1,1231 @@
+<html>
+ <!--
+* PyWebCopy Engine [version 7.0.2]
+* Copyright 2020; Raja Tomar
+* File mirrored from [http://bigor.bmstu.ruA:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_OP_T.cou]
+* At UTC datetime: [2022-12-17 23:16:06.567785]
+-->
+ <head>
+  <title>
+   Îñíîâû ïðîãðàììèðîâàíèÿ (òåîðåòè÷åñêèé êóðñ)
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="index, nofollow" name="Robots"/>
+  <script language="JavaScript">
+   function feedback(act, txt) {
+document.forms['FBForm'].action='/?'+act+'/?'+document.location.href;
+document.getElementById('FB').value=txt;
+document.forms['FBForm'].submit(); }
+
+function on(obj) { obj.style.textDecoration='underline'; }
+function off(obj) { obj.style.textDecoration='none'; }
+
+function imgscale(img, k) { img.width=img.width*k; }
+
+var cs=null;
+function selStop() { if(document.selection != null) cs=document.selection.createRange(); }
+function selStart() { cs=null; }
+
+function termSearch() { if(cs == null || cs.text.length == 0) feedback('sht',''); else { cs.select(); feedback('sht',cs.text); } cs=null; }
+function termInfo(txt) { feedback('trm',txt); } function termInfoExt(txt) { feedback('tre',txt); }
+
+function jobchange(cb) {
+document.getElementById('ChJob').value=(cb.checked ? '+':'-')+' '+cb.id;
+document.forms['FJob'].submit(); }
+
+function jobchangeall(cb) {
+document.getElementById('ChGrJob').value=cb.id+' '+document.location.href;
+document.forms['FGrJob'].action += document.location.href+'#S'+document.body.scrollTop;
+document.forms['FGrJob'].submit(); }
+
+function iniscroll() {
+var s = new String(document.location.hash); if(s.length < 3 || s.charAt(1) != new String('S')) return;
+document.body.scrollTop = s.substring(2); }
+
+var bx=0, by=0, bw=0, bh=0;
+var box=null, tit=null, txt=null;
+var his=null;
+var dx=0, dy=0, dflg=0;
+
+function puInit() { 
+box=document.getElementById('PopUp'); 
+tit=document.getElementById('PopUpTitle'); 
+txt=document.getElementById('PopUpText');
+puClose(); tit.style.cursor='default';
+bw = document.body.scrollWidth*0.55; if(bw < 350) bw = 350;
+bx = (document.body.scrollWidth-bw)/2-3; by=50;
+txt.style.width=bw; box.style.top=-1000;
+if(box.filters != null) box.style.filter='revealtrans(transition=1)'; }
+
+function puClose() {
+if(box == null) return;
+dFlg=0; txt.style.height=80; his=null;
+box.style.top=-1000;
+box.style.visibility='hidden'; }
+
+function puOpen() {
+if(box == null) return;
+if(box.filters != null && his == null) box.filters.item(0).Apply();
+dFlg=0;
+var v = ''; var t = new String(FPopUp.document.title);
+if(t == null || t.length == 0) { document.location.href=new String(document.location.href); return; }
+if(t.charAt(0) == '!') { t = t.substring(1); v = 'hidden'; }
+document.getElementById('PopUpBack').style.visibility = v; 
+document.getElementById('PopUpForw').style.visibility = v;
+tit.innerHTML=t;
+bh = FPopUp.document.body.scrollHeight+6; if(bh > 500) bh = 500; else if(bh < 100) bh = 100;
+txt.style.height=bh;
+box.style.left=document.body.scrollLeft+bx; 
+box.style.top=document.body.scrollTop+by;
+box.style.visibility='visible';
+if(box.filters != null && his == null) box.filters.item(0).play(0.3);
+if(his == null) his=FPopUp.document.location.href; }
+
+function puScroll() {
+if(his == null) return;
+box.style.left=document.body.scrollLeft+bx;
+box.style.top=document.body.scrollTop+by; }
+
+function puForw() {
+FPopUp.history.forward(); }
+
+function puBack() {
+if(FPopUp.document.location.href == his) return;
+FPopUp.history.back(); }
+
+function puMove(ev) {
+if(dflg == 0) return;
+bx = bx+(ev.screenX-dx); box.style.left=document.body.scrollLeft+bx; dx=ev.screenX;
+by = by+(ev.screenY-dy); box.style.top=document.body.scrollTop+by; dy=ev.screenY;
+ev.cancelBubble=true; }
+
+function puStart(ev) {
+if(ev.button > 1) return;
+dflg=1; tit.style.cursor='move';
+dx=ev.screenX; dy=ev.screenY; }
+
+function puStop() {
+tit.style.cursor='default'; dflg=0; }
+  </script>
+  <style type="text/css">
+   .menu { padding-left:6px; padding-right:6px; }
+.menuLnk { color:#000000; font-family:sans-serif; font-size:12px; text-decoration:none; }
+.puTitle { background-color:#7070FF; text-align:center; height:21px; margin-top:1px; font-family:sans-serif; font-weight:bold; color:white; font-size:15px; letter-spacing:1px; }
+.eChapter { margin-left:8.0px; margin-top:2pt; margin-bottom:2pt; }
+.eChTitle { font-size:13.5pt; color:#00B200; font-family:serif; font-weight:bold; text-indent:0pt; text-align:left; }
+.eLTestMod { font-size:13.0px; color:#000000; font-family:sans-serif; font-weight:normal; margin-left:15px; text-align:left; text-decoration:none; }
+.eTitleCourse { font-size:29.0pt; color:#00B200; text-align:center; font-family:monospace; font-weight:bold; margin-bottom:8pt; margin-top:0pt; text-indent:0pt; text-decoration:none; }
+.eLModul { font-size:13.5pt; color:#B200B2; font-family:serif; font-weight:bold; margin-left:4px; text-align:left; text-decoration:none; }
+.dCourse { font-size:15.0px; font-family:verdana,sans-serif; text-indent:25.0px; margin-left:6pt; margin-right:6pt; text-align:justify; }
+.eExtern { color:#0000BE; font-family:sans-serif; font-weight:bold; font-style:normal; font-size:115%; text-decoration:none; }
+  </style>
+ </head>
+ <body bottommargin="10" leftmargin="10" onload="puInit()" onmousemove="puMove(event)" onmouseup="puStop()" onresize="puInit()" onscroll="puScroll()" rightmargin="10" topmargin="10">
+  <table bgcolor="#7070FF" border="1" id="PopUp" style="visibility:hidden; position:absolute">
+   <tr>
+    <td>
+     <a href="javascript:puBack()" id="PopUpBack">
+      <img align="left" alt="Назад" border="0" hspace="1" src="./asr_HTML_Back.gif.gif" vspace="1"/>
+     </a>
+     <a href="javascript:puForw()" id="PopUpForw">
+      <img align="left" alt="Вперед" border="0" hspace="1" src="./asr_HTML_Forw.gif.gif" vspace="1"/>
+     </a>
+     <a href="javascript:puClose()">
+      <img align="right" alt="Закрыть" border="0" hspace="1" src="./asr_HTML_Close.gif.gif" vspace="1"/>
+     </a>
+     <div class="puTitle" id="PopUpTitle" onmousedown="puStart(event)">
+     </div>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <iframe frameborder="no" id="PopUpText" name="FPopUp" onload="puOpen()" scroll="auto">
+     </iframe>
+    </td>
+   </tr>
+  </table>
+  <div style="display:none">
+   <form method="POST" name="FBForm" target="FPopUp">
+    <input id="FB" name="FB" type="HIDDEN"/>
+   </form>
+  </div>
+  <div style="display:none">
+   <form action="./jad" method="POST" name="FJob">
+    <input id="ChJob" name="JText" type="TEXT"/>
+   </form>
+  </div>
+  <div style="display:none">
+   <form action="/" method="POST" name="FGrJob">
+    <input id="ChGrJob" name="JText" type="TEXT"/>
+   </form>
+  </div>
+  <div id="Content" onmousedown="puClose()">
+   <noindex>
+    <center>
+     <table border="0" cellpadding="0" cellspacing="0">
+      <tr align="center" valign="top">
+       <td class="menu">
+        <a class="menuLnk" href="/">
+         <img border="0" src="/?asr/HTML_Home.gif"/>
+         <br/>
+         Главная страница
+        </a>
+       </td>
+       <td>
+       </td>
+       <td class="menu">
+        <a class="menuLnk" href="javascript:termSearch()">
+         <img border="0" src="/?asr/HTML_TSearch.gif"/>
+         <br/>
+         Поиск терминов
+        </a>
+       </td>
+       <td>
+       </td>
+       <td class="menu">
+        <a class="menuLnk" href="/?styA:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_OP_T.cou__cou_OP2_OP_T.cou.html" target="FPopUp">
+         <img border="0" src="/?asr/HTML_Setup.gif"/>
+         <br/>
+         Настройки
+        </a>
+       </td>
+       <td>
+       </td>
+       <td class="menu">
+        <a class="menuLnk" href="/?cnt/?prn=y/?doc=OP2/OP_T.cou">
+         <img border="0" src="/?asr/HTML_Print.gif"/>
+         <br/>
+         Версия для печати
+        </a>
+       </td>
+       <td>
+       </td>
+      </tr>
+     </table>
+    </center>
+   </noindex>
+   <hr width="90%"/>
+   <div class="dCourse" onmousedown="selStart()" onmouseout="selStop()" onmouseup="selStop()">
+    <div class="eTitleCourse">
+     <a class="eTitleCourse" href="/?met/?doc=OP2/OP_T.cou__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" target="FPopUp" title="Показать метаданные документа">
+      Основы программирования (теоретический курс)
+     </a>
+    </div>
+    <div>
+     В учебнике изложены теоретические положения разработки программного обеспечения с использованием технологии структурного программирования. Подробно рассмотрены основные приемы решения задач различных классов. В качестве языка программировия используется язык Си. Приводится достаточно подробное описание языка Си.
+    </div>
+    <div>
+     Содержание учебника соответствует курсу лекций "Основы программирования", которые автор читает в МГТУ им. Н.Э. Баумана.
+    </div>
+    <div>
+     Для студентов вузов, обучающихся по специальностям, связанным с информатикой. Может быть полезен всем изучающим программирование самостоятельно.
+    </div>
+    <div>
+     <a class="eExtern" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_av.aux__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть справочный модуль">
+      Сведения об авторах
+     </a>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 1. Основы алгоритмизации
+     </div>
+     <div class="eChapter">
+      <div class="eChTitle">
+       1.1. Стадии создания программного продукта
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_stad.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        1.1.1. Стадии создания программного продукта
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_stad1.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        1.1.2. Стадия предпроектных исследований и технического задания
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_stad2.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        1.1.3. Стадия технического предложения
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_stad3.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        1.1.4. Стадия эскизного проектирования
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_stad4.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        1.1.5. Стадия технического проектирования
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_stad5.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        1.1.6. Стадия рабочего проектирования
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_stad6.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        1.1.7. Стадии испытаний и внедрения в эксплуатацию
+       </a>
+      </div>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_algoritm.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       1.2. Алгоритм
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_algoritm.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Анализ
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_shema.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       1.3. Схемы алгоритмов
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_basestruct.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       1.4. Основные алгоритмические структуры
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_psevdokod.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       1.5. Псевдокод алгоритма
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_primalg1.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       1.6. Пример алгоритма
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 2. Введение в программирование
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_syntaks.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       2.1. Синтаксис и семантика языка программирования
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_character.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       2.2. Характерные черты языка программирования Си
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_alfavit.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       2.3. Алфавит языка программирования Си
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_ident.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Идентификаторы
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_struct_progr.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       2.4. Общая структура программы на языке Си
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_comment.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       2.5. Комментарии
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_formul.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       2.6. Выражения
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_operator.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       2.7. Операторы
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 3. Данные
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_types.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       3.1. Основные типы данных
+      </a>
+     </div>
+     <div class="eChapter">
+      <div class="eChTitle">
+       3.2. Константы
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_constant.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        3.2.1. Константы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_celconst.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        3.2.2. Целые константы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_vconst.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        3.2.3. Вещественные константы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_simconst.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        3.2.4. Символьные константы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_strconst.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        3.2.5. Строковые константы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_const_per.com.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        3.2.6. Константы перечисления
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_atr_const.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        3.2.7. Атрибут const
+       </a>
+      </div>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_typedef.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       3.3. Переименование типа
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 4. Операции
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_priorety.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.1. Приоритеты операций
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_arifm_oper.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.2. Арифметические операции
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_operate.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Операторы 1
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_operate2.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Операторы 2
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_preoritet.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Приоритеты операций
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_op_pre.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.3. Операция приведения
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_avto-preob.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.4. Преобразования при выполнении арифметических операций
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_prisv.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.5. Операция присваивания
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_preob_pris.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.6. Преобразования при присваивании
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_incremeny.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.7. Операции инкрементации и декрементации
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_increment.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Операции инкрементации и декрементации
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_oper_otnosh.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.8. Операции отношений
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_otn.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Операции отношений
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_log-oper.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.9. Логические операции
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_logic.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Логические операции
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_usl_oper.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.10. Условная операция
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_usl_1.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Условная операция 1
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_usl_2.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Условная операция 2
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_bit_oper.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.11. Побитовые операции
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_op_zap.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       4.12. Операция продолжения ("запятая")
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 5. Управляющие операторы
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_if.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       5.1. Управляющий оператор if
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_while.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       5.2. Оператор цикла while
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_while.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Оператор цикла while 1
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_while2.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Оператор цикла while 2
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_do_while.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       5.3. Оператор цикла do-while
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_for.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       5.4. Оператор цикла for
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_switch.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       5.5. Оператор switch
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_break_con.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       5.6. Операторы break и continue
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_op_goto.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       5.7. Оператор goto
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 6. Функции
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_function.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       6.1. Функции
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_define_func.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       6.2. Определение функции
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_decl_func.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       6.3. Объявление функций
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_vizov_func.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       6.4. Вызов функции
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_argument.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       6.5. Аргументы функции
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_stak.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       6.6. Назначение стека при вызове функции
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_return.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       6.7. Оператор return
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_recurc.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       6.8. Рекурсивные функции
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_func.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Вызовы и аргументы функции
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_func_2.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Определение прототипа функции
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_func_3.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Объявление прототипа функции
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_rec_1.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Рекурсивные функции 1
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_rec_2.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Рекурсивные функции 2
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 7. Классы памяти
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_view_class.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       7.1. Обзор классов памяти
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_auto_class.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       7.2. Автоматический класс памяти
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_external_class.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       7.3. Внешний класс памяти
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_static_class.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       7.4. Статический класс памяти
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_register_class.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       7.5. Регистровый класс памяти
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_class.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Классы памяти
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 8. Массивы
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_massiv.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       8.1. Массивы
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_dostup.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       8.2. Доступ к элементам массива
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_mas_simb.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       8.3. Массивы символов
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_out_mas.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       8.4. Обработка массивов
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_init_mas.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       8.5. Инициализация массива
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_adr_mas.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       8.6. Передача в функцию адреса массива
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_mas_func_2.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       8.7. Передача в функцию двумерного массива
+      </a>
+     </div>
+     <div class="eChapter">
+      <div class="eChTitle">
+       8.8. Обработка одномерных массивов
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_priem_obrab.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.8.1. Основные приемы программирования обработки одномерных массивов
+       </a>
+      </div>
+      <div class="eChapter">
+       <div class="eChTitle">
+        8.8.2. Однотипная обработка массивов
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_odno_typ.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         8.8.2.1. Поэлементная обработка массивов
+        </a>
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_vib_obr.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         8.8.2.2. Выборочная обработка элементов массива
+        </a>
+       </div>
+      </div>
+      <div class="eChapter">
+       <div class="eChTitle">
+        8.8.3. Переформирование массива
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_pereform1.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         8.8.3.1. Переформирование массива без изменения его размеров
+        </a>
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_pereform2.vjl.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         8.8.3.2. Переформирование массива с изменением его размеров
+        </a>
+       </div>
+      </div>
+      <div class="eChapter">
+       <div class="eChTitle">
+        8.8.4. Одновременная обработка массивов
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_odnovrem1.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         8.8.4.1. Особенности одновременной обработки массивов
+        </a>
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_sinxr.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         8.8.4.2. Синхронная обработка  массивов или подмассивов
+        </a>
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_usinx.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         8.8.4.3. Асинхронная обработка массивов
+        </a>
+       </div>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_poisk.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.8.5. Поисковые задачи
+       </a>
+      </div>
+     </div>
+     <div class="eChapter">
+      <div class="eChTitle">
+       8.9. Сортировка одномерных массивов
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_sort.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.9.1. Сортировка одномерных массивов
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_sort1.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.9.2. Метод выбора
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_sort2.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.9.3. Метод вставки
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_sort3.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.9.4. Метод обменов
+       </a>
+      </div>
+     </div>
+     <div class="eChapter">
+      <div class="eChTitle">
+       8.10. Обработка двумерных массивов или матриц
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_matr.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.10.1. Матрицы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_obrmatr.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.10.2. Особенности программирования обработки матриц
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_matr2.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.10.3. Поэлементная обработка матрицы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_matr3.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.10.4. Выборочная обработка матрицы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_matr4.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.10.5. Переформирование матрицы
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_obr.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.10.6. Одновременная обработка матриц и подмассивов
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_matr5.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        8.10.7. Обработка матрицы по частям
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 9. Указатели
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_pointer.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.1. Указатели
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_isp_pointer.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.2. Использование указателей
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_adr_oper.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.3. Адресная арифметика
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_ptr_void.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.4. Указатель на void
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_mas_ptr.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.5. Массивы указателей
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_ptr_ptr.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.6. Двукратные указатели
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_funk_point.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.7. Функции, возвращающие указатель
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_uk_fun.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.8. Указатели на функцию
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_point_1.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Указатели 1
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_point_2.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Указатели 2
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_dostup_arg.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       9.9. Доступ к аргументам командной строки
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 10. Структуры и объединения
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_struct.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       10.1. Структуры
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_dostup_struct.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       10.2. Доступ к элементам структуры
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_struct_init.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       10.3. Инициализация структуры
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_mass_struct.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       10.4. Массивы структур
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_struct_point.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       10.5. Указатели на структуры
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_struct_func.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       10.6. Структура как параметр функции
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_struct_sam.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       10.7. Самоссылающиеся структуры
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_struct.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Структуры 1
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_struct2.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Структуры 2
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_point_struct.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Указатели на структуры
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_union.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       10.8. Объединения
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 11. Препроцессор
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_preproc.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       11.1. Препроцессор языка Си
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_name_const.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       11.2. Поименованные константы
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_macros.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       11.3. Макросы
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_include.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       11.4. Организация файлов программы
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_usl_comp.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       11.5. Условная компиляция
+      </a>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Глава 12. Библиотеки
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_library.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       12.1. Библиотеки в ОС UNIX
+      </a>
+     </div>
+     <div class="eChapter">
+      <div class="eChTitle">
+       12.2. Библиотека ввода-вывода
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_in_out.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.1. Обзор средств ввода-вывода
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_str_file.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.2. Структура FILE
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_buf_in_out.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.3. Буферизованный ввод-вывод
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_fopen.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.4. Функция fopen()
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_fclose.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.5. Функция fclose()
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_read_write.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.6. Функции чтения-записи
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_getchar.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.7. Функции getchar() и putchar()
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_ungetc.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.8. Функция ungetc()
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_form.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.9. Обзор функций форматированного ввода-вывода
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_printf.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.10. Функция printf()
+       </a>
+      </div>
+      <div>
+       <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_printf.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+        Тест: Функция printf()
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_scanf.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.11. Функция scanf()
+       </a>
+      </div>
+      <div>
+       <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_scanf.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+        Тест: Функция scanf()
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_fun_gets.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.12. Функции gets() и puts()
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_fflush.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.13. Вытеснение буфера
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_fseek.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.14. Произвольный доступ
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_err.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.2.15. Функции обработки ошибок
+       </a>
+      </div>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_func_string.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       12.3. Функции обработки строк
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_math.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       12.4. Математические функции
+      </a>
+     </div>
+     <div class="eChapter">
+      <div class="eChTitle">
+       12.5. Библиотека общего назначения
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_rand.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.5.1. Функции случайных чисел
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_atoi.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.5.2. Функции преобразования ASCII-строки в числовые значения
+       </a>
+      </div>
+      <div>
+       <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_exit.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+        12.5.3. Функция exit()
+       </a>
+      </div>
+      <div class="eChapter">
+       <div class="eChTitle">
+        12.5.4. Управление динамической памятью
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_mem1.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         12.5.4.1. Виртуальная память пользователя
+        </a>
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_mem2.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         12.5.4.2. Функции управления динамической памятью
+        </a>
+       </div>
+       <div>
+        <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_dina.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+         12.5.4.3. Динамические структуры данных
+        </a>
+       </div>
+       <div class="eChapter">
+        <div class="eChTitle">
+         12.5.4.4.  Списки
+        </div>
+        <div>
+         <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_spi1.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+          12.5.4.4.1. Линейные односвязные списки
+         </a>
+        </div>
+        <div>
+         <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_spi2.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+          12.5.4.4.2. Добавление элемента к списку
+         </a>
+        </div>
+        <div>
+         <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_spi3.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+          12.5.4.4.3. Просмотр и обработка элементов списка
+         </a>
+        </div>
+        <div>
+         <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_spi4.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+          12.5.4.4.4. Удаление элемента списка
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="eChapter">
+     <div class="eChTitle">
+      Приложение 13.
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_repres.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       13.1. Выбор системы счисления для представления числовой информации
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_translate.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       13.2. Перевод числовой информации из одной ПСС в другую
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_transler.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Перевод чисел из десятичной ПСС в двоичную
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_trans2.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Перевод чисел из двоичной ПСС в десятичную
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_trans3.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Перевод чисел из двоичной ПСС в восьмеричную
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_trans4.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Перевод чисел из восьмеричной ПСС в двоичную
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_trans5.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Перевод чисел из двоичной ПСС в шестнадцатеричную
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_truns6.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Перевод чисел из шестнадцатеричной ПСС в двоичную
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_arifmetic.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       13.3. Двоичная арифметика
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_arifm1.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Двоичная арифметика
+      </a>
+     </div>
+     <div>
+      <a class="eLModul" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_format.mod__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть модуль">
+       13.4. Формы представления числовой информации
+      </a>
+     </div>
+     <div>
+      <a class="eLTestMod" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_test_cod.tst__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть тестовый модуль">
+       Тест: Прямой, обратный, дополнительный коды
+      </a>
+     </div>
+    </div>
+    <div>
+     <a class="eExtern" href="A:/BIGOR/App/my_site/bigor.bmstu.ru/cnt__doc_OP2_krbase.aux__cou_OP2_OP_T.cou.html" onmouseout="off(this)" onmouseover="on(this)" title="Открыть справочный модуль">
+      Список литературы
+     </a>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,164 @@
+<html><!--
+* PyWebCopy Engine [version 7.0.2]
+* Copyright 2020; Raja Tomar
+* File mirrored from [http://bigor.bmstu.ru/?cnt/?doc=OP2/av.aux/?cou=OP2/OP_T.cou]
+* At UTC datetime: [2022-12-18 10:20:44.753826]
+--><head><title>&#209;&#226;&#229;&#228;&#229;&#237;&#232;&#255; &#238;&#225; &#224;&#226;&#242;&#238;&#240;&#224;&#245;</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="Robots" content="index, nofollow">
+
+<script language="JavaScript">
+function feedback(act, txt) {
+document.forms['FBForm'].action='/?'+act+'/?'+document.location.href;
+document.getElementById('FB').value=txt;
+document.forms['FBForm'].submit(); }
+
+function on(obj) { obj.style.textDecoration='underline'; }
+function off(obj) { obj.style.textDecoration='none'; }
+
+function imgscale(img, k) { img.width=img.width*k; }
+
+var cs=null;
+function selStop() { if(document.selection != null) cs=document.selection.createRange(); }
+function selStart() { cs=null; }
+
+function termSearch() { if(cs == null || cs.text.length == 0) feedback('sht',''); else { cs.select(); feedback('sht',cs.text); } cs=null; }
+function termInfo(txt) { feedback('trm',txt); } function termInfoExt(txt) { feedback('tre',txt); }
+
+function jobchange(cb) {
+document.getElementById('ChJob').value=(cb.checked ? '+':'-')+' '+cb.id;
+document.forms['FJob'].submit(); }
+
+function jobchangeall(cb) {
+document.getElementById('ChGrJob').value=cb.id+' '+document.location.href;
+document.forms['FGrJob'].action += document.location.href+'#S'+document.body.scrollTop;
+document.forms['FGrJob'].submit(); }
+
+function iniscroll() {
+var s = new String(document.location.hash); if(s.length < 3 || s.charAt(1) != new String('S')) return;
+document.body.scrollTop = s.substring(2); }
+
+var bx=0, by=0, bw=0, bh=0;
+var box=null, tit=null, txt=null;
+var his=null;
+var dx=0, dy=0, dflg=0;
+
+function puInit() { 
+box=document.getElementById('PopUp'); 
+tit=document.getElementById('PopUpTitle'); 
+txt=document.getElementById('PopUpText');
+puClose(); tit.style.cursor='default';
+bw = document.body.scrollWidth*0.55; if(bw < 350) bw = 350;
+bx = (document.body.scrollWidth-bw)/2-3; by=50;
+txt.style.width=bw; box.style.top=-1000;
+if(box.filters != null) box.style.filter='revealtrans(transition=1)'; }
+
+function puClose() {
+if(box == null) return;
+dFlg=0; txt.style.height=80; his=null;
+box.style.top=-1000;
+box.style.visibility='hidden'; }
+
+function puOpen() {
+if(box == null) return;
+if(box.filters != null && his == null) box.filters.item(0).Apply();
+dFlg=0;
+var v = ''; var t = new String(FPopUp.document.title);
+if(t == null || t.length == 0) { document.location.href=new String(document.location.href); return; }
+if(t.charAt(0) == '!') { t = t.substring(1); v = 'hidden'; }
+document.getElementById('PopUpBack').style.visibility = v; 
+document.getElementById('PopUpForw').style.visibility = v;
+tit.innerHTML=t;
+bh = FPopUp.document.body.scrollHeight+6; if(bh > 500) bh = 500; else if(bh < 100) bh = 100;
+txt.style.height=bh;
+box.style.left=document.body.scrollLeft+bx; 
+box.style.top=document.body.scrollTop+by;
+box.style.visibility='visible';
+if(box.filters != null && his == null) box.filters.item(0).play(0.3);
+if(his == null) his=FPopUp.document.location.href; }
+
+function puScroll() {
+if(his == null) return;
+box.style.left=document.body.scrollLeft+bx;
+box.style.top=document.body.scrollTop+by; }
+
+function puForw() {
+FPopUp.history.forward(); }
+
+function puBack() {
+if(FPopUp.document.location.href == his) return;
+FPopUp.history.back(); }
+
+function puMove(ev) {
+if(dflg == 0) return;
+bx = bx+(ev.screenX-dx); box.style.left=document.body.scrollLeft+bx; dx=ev.screenX;
+by = by+(ev.screenY-dy); box.style.top=document.body.scrollTop+by; dy=ev.screenY;
+ev.cancelBubble=true; }
+
+function puStart(ev) {
+if(ev.button > 1) return;
+dflg=1; tit.style.cursor='move';
+dx=ev.screenX; dy=ev.screenY; }
+
+function puStop() {
+tit.style.cursor='default'; dflg=0; }
+
+</script>
+<style type="text/css">
+.menu { padding-left:6px; padding-right:6px; }
+.menuLnk { color:#000000; font-family:sans-serif; font-size:12px; text-decoration:none; }
+.puTitle { background-color:#7070FF; text-align:center; height:21px; margin-top:1px; font-family:sans-serif; font-weight:bold; color:white; font-size:15px; letter-spacing:1px; }
+.eSubTitle { font-size:13.5pt; color:#0000FF; font-family:sans-serif; font-weight:bold; text-indent:25pt; text-align:left; margin-top:10pt; margin-bottom:3.5pt; }
+.eList { margin-left:0px; padding-left:0pt; margin-top:0pt; margin-bottom:0pt; text-indent:25.0px; list-style-position:inside; }
+.eTitleAuxMod { font-size:25.5pt; color:#0000FF; text-align:center; font-family:serif; font-weight:bold; margin-bottom:8pt; margin-top:0pt; text-indent:0pt; text-decoration:none; }
+.dAuxMod { font-size:15.0px; font-family:verdana,sans-serif; text-indent:25.0px; margin-left:6pt; margin-right:6pt; text-align:justify; }
+</style>
+</head>
+<body topmargin="10" bottommargin="10" leftmargin="10" rightmargin="10" onload="puInit()" onresize="puInit()" onscroll="puScroll()" onmousemove="puMove(event)" onmouseup="puStop()">
+
+<table bgcolor="#7070FF" border="1" id="PopUp" style="visibility:hidden; position:absolute"><tr><td>
+<a id="PopUpBack" href="javascript:puBack()"><img hspace="1" vspace="1" border="0" src="./asr_HTML_Back.gif.gif" align="left" alt="&#1053;&#1072;&#1079;&#1072;&#1076;"></a>
+<a id="PopUpForw" href="javascript:puForw()"><img hspace="1" vspace="1" border="0" src="./asr_HTML_Forw.gif.gif" align="left" alt="&#1042;&#1087;&#1077;&#1088;&#1077;&#1076;"></a>
+<a href="javascript:puClose()"><img hspace="1" vspace="1" border="0" src="./asr_HTML_Close.gif.gif" align="right" alt="&#1047;&#1072;&#1082;&#1088;&#1099;&#1090;&#1100;"></a>
+<div id="PopUpTitle" onmousedown="puStart(event)" class="puTitle"></div>
+</td></tr><tr><td>
+<iframe name="FPopUp" id="PopUpText" frameborder="no" scroll="auto" onload="puOpen()"></iframe>
+</td></tr></table>
+
+<div style="display:none">
+<form name="FBForm" method="POST" target="FPopUp">
+<input type="HIDDEN" id="FB" name="FB">
+</form></div>
+
+<div style="display:none">
+<form name="FJob" method="POST" action="./jad">
+<input type="TEXT" id="ChJob" name="JText">
+</form></div>
+
+<div style="display:none">
+<form name="FGrJob" method="POST" action="./1557202953">
+<input type="TEXT" id="ChGrJob" name="JText">
+</form></div>
+
+<div id="Content" onmousedown="puClose()">
+<noindex>
+<center><table border="0" cellspacing="0" cellpadding="0"><tr align="center" valign="top">
+<td class="menu"><a class="menuLnk" href="/"><img border="0" src="/?asr/HTML_Home.gif"><br>&#1043;&#1083;&#1072;&#1074;&#1085;&#1072;&#1103; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1072;</a></td><td>
+</td><td class="menu"><a class="menuLnk" href="/?cnt/?doc=OP2/OP_T.cou"><img border="0" src="/?asr/HTML_Content.gif"><br>&#1054;&#1075;&#1083;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1082;&#1091;&#1088;&#1089;&#1072;</a></td>
+<td class="menu"><a class="menuLnk" href="javascript:termSearch()"><img border="0" src="/?asr/HTML_TSearch.gif"><br>&#1055;&#1086;&#1080;&#1089;&#1082; &#1090;&#1077;&#1088;&#1084;&#1080;&#1085;&#1086;&#1074;</a></td><td>
+</td><td class="menu"><a class="menuLnk" href="/?sty/?cnt/?doc=OP2/av.aux/?cou=OP2/OP_T.cou/?bck=OP2/av.aux" target="FPopUp"><img border="0" src="/?asr/HTML_Setup.gif"><br>&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1080;</a></td><td>
+</td><td class="menu"><a class="menuLnk" href="/?cnt/?prn=y/?doc=OP2/av.aux"><img border="0" src="/?asr/HTML_Print.gif"><br>&#1042;&#1077;&#1088;&#1089;&#1080;&#1103; &#1076;&#1083;&#1103; &#1087;&#1077;&#1095;&#1072;&#1090;&#1080;</a></td><td>
+</td></tr></table></center>
+</noindex>
+<hr width="90%">
+<div onmouseup="selStop()" onmouseout="selStop()" onmousedown="selStart()" class="dAuxMod">
+<div class="eTitleAuxMod"><a class="eTitleAuxMod" target="FPopUp" href="/?met/?doc=OP2/av.aux/?cou=OP2/OP_T.cou/?bck=OP2/av.aux" onmouseover="on(this)" onmouseout="off(this)" title="&#1055;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1072;&#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;">&#1057;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1103; &#1086;&#1073; &#1072;&#1074;&#1090;&#1086;&#1088;&#1072;&#1093;</a>
+</div>
+<div>&#1054;&#1088;&#1075;&#1072;&#1085;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-&#1088;&#1072;&#1079;&#1088;&#1072;&#1073;&#1086;&#1090;&#1095;&#1080;&#1082;: <span style="font-weight:bold; ">&#1052;&#1086;&#1089;&#1082;&#1086;&#1074;&#1089;&#1082;&#1080;&#1081; &#1075;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1081; &#1090;&#1077;&#1093;&#1085;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1081; &#1091;&#1085;&#1080;&#1074;&#1077;&#1088;&#1089;&#1080;&#1090;&#1077;&#1090; &#1080;&#1084;. &#1053;.&#1069;.&#1041;&#1072;&#1091;&#1084;&#1072;&#1085;&#1072;</span></div>
+<div class="eSubTitle"></div>
+<div>&#1040;&#1074;&#1090;&#1086;&#1088;&#1099; &#1101;&#1083;&#1077;&#1082;&#1090;&#1088;&#1086;&#1085;&#1085;&#1086;&#1075;&#1086; &#1091;&#1095;&#1077;&#1073;&#1085;&#1080;&#1082;&#1072;:</div>
+<ul class="eList"><li>&#1089;&#1090;. &#1087;&#1088;&#1077;&#1087;&#1086;&#1076;&#1072;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100; &#1045;.&#1042;. &#1060;&#1077;&#1076;&#1086;&#1088;&#1091;&#1082;</li>
+<li>&#1082;.&#1090;.&#1085;. &#1072;&#1089;&#1089;&#1080;&#1089;&#1090;&#1077;&#1085;&#1090; &#1044;.&#1058;. &#1064;&#1074;&#1072;&#1088;&#1094;</li>
+</ul>
+</div>
+</div></body></html>

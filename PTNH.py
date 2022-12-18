@@ -7,6 +7,14 @@ dr = os.getcwd()
 dr = dr.replace('\\','/')
 pages = []
 
+def root_path(text):
+	x = os.path.abspath(os.sep)
+	x = x.replace('\\','/')
+	if text == x:
+		return text+'/App/'
+	else:
+		return text
+
 print("Loading main page...")
 
 url = 'http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou'
@@ -21,7 +29,7 @@ for i in links:
     pages.append('http://bigor.bmstu.ru'+i.get('href'))
 print("Links to pages added.")
 
-if (os.path.exists(dr+'/App/') == 0):
+if (os.path.exists(root_path(dr)) == 0):
     os.chdir(dr)
     os.mkdir('App')
 

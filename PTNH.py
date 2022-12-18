@@ -60,12 +60,12 @@ for i in pages:
 print("Pages successfully downloaded!")
 
 source = dr+"/App/my_site/bigor.bmstu.ru/"
-#if (os.path.exists(source+'index.html') == 0):
-#    os.rename(source+'cnt__doc_OP2_OP_T.cou.html',source+'index.html')
+
 files = [f for f in os.listdir(source) if f.endswith('.gif.gif')]
 for i in range(len(files)):
     files[i] = files[i].replace('gif.gif', 'gif')
-    os.rename(source+files[i]+'.gif', source+files[i])
+    if (os.path.isfile(source+files[i]) == 0):
+        os.rename(source+files[i]+'.gif', source+files[i])
 
 files = [f for f in os.listdir(source) if f.endswith('.html')]
 for i in files:
@@ -76,9 +76,12 @@ for i in files:
     page = page.replace('/?cou=OP2/OP_T.cou','__cou_OP2_OP_T.cou.html')
     page = page.replace('cnt__doc_OP2_OP_T.cou','cnt__doc_OP2_OP_T.cou.html')
     page = page.replace('gif.gif', 'gif')
+    page = page.replace('/?asr/',source+'asr_')
     with open(source+i, 'w', encoding="utf-8") as file:
         file.write(page)
     HTMLFile.close()
+#if (os.path.exists(source+'index.html') == 0):
+#    os.rename(source+'cnt__doc_OP2_OP_T.cou.html',source+'index.html')
 #os.remove(source+"index.html")
 
 print("Now you can open BIGOR. Open file edit.html to start. Good luck!")

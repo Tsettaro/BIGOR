@@ -60,16 +60,26 @@ for i in pages:
 print("Pages successfully downloaded!")
 
 source = dr+"/App/my_site/bigor.bmstu.ru/"
-if (os.path.exists(source+'index.html') == 0):
-    os.rename(source+'cnt__doc_OP2_OP_T.cou.html',source+'index.html')
-HTMLFile = open(source+'index.html', "r")
-soup = BeautifulSoup(HTMLFile.read(), 'lxml')
-HTMLFile.close()
-os.remove(source+"index.html")
-page = soup.prettify()
-page = page.replace('/?cnt/?doc=OP2/', source+'cnt__doc_OP2_')
-page = page.replace('/?cou=OP2/OP_T.cou','__cou_OP2_OP_T.cou.html')
-with open(r'edit.html', 'w', encoding="utf-8") as file:
-    file.write(page)
+#if (os.path.exists(source+'index.html') == 0):
+#    os.rename(source+'cnt__doc_OP2_OP_T.cou.html',source+'index.html')
+files = [f for f in os.listdir(source) if f.endswith('.gif.gif')]
+for i in range(len(files)):
+    files[i] = files[i].replace('gif.gif', 'gif')
+    os.rename(source+files[i]+'.gif', source+files[i])
+
+files = [f for f in os.listdir(source) if f.endswith('.html')]
+for i in files:
+    HTMLFile = open(source+i, "r")
+    soup = BeautifulSoup(HTMLFile.read(), 'lxml')
+    page = soup.prettify()
+    page = page.replace('/?cnt/?doc=OP2/', source+'cnt__doc_OP2_')
+    page = page.replace('/?cou=OP2/OP_T.cou','__cou_OP2_OP_T.cou.html')
+    page = page.replace('cnt__doc_OP2_OP_T.cou','cnt__doc_OP2_OP_T.cou.html')
+    page = page.replace('gif.gif', 'gif')
+    with open(source+i, 'w', encoding="utf-8") as file:
+        file.write(page)
+    HTMLFile.close()
+#os.remove(source+"index.html")
+
 print("Now you can open BIGOR. Open file edit.html to start. Good luck!")
 os.system("pause")

@@ -72,3 +72,4 @@ page = page.replace('/?cou=OP2/OP_T.cou','__cou_OP2_OP_T.cou.html')
 with open(r'edit.html', 'w', encoding="utf-8") as file:
     file.write(page)
 print("Now you can open BIGOR. Open file edit.html to start. Good luck!")
+os.system("pause")

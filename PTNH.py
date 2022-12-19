@@ -3,15 +3,30 @@ from bs4 import BeautifulSoup
 import os, shutil as sh, requests, platform
 from pathlib import Path
 
-match platform.system():
-    case "Windows":
-        dr = os.path.expanduser('~/Documents/')
-        dr = dr.replace('\\','/')
-    case "Linux":
-        dr = os.path.expanduser('~/')
-    case _:
-        print("Sorry, but I can work only on Windows or Linux!")
-        quit()
+pages = []
+
+def cls():
+    os.system('cls' if platform.system()=='Windows' else 'clear')
+
+def find(tag, cl):
+    links = soup.find_all(tag, class_ = cl)
+    for i in links:
+        pages.append('http://bigor.bmstu.ru'+i.get('href'))
+
+dr = input("Hello! And welcome to BIGOR downloader. Choose the path, where we install BIGOR: ")
+if (dr == ''):
+    match platform.system():
+        case "Windows":
+            dr = os.path.expanduser('~/Documents/')
+            dr = dr.replace('\\','/')
+        case "Linux":
+            dr = os.path.expanduser('~/')
+else:
+	while (os.path.exists(dr) == False or (os.access(dr, os.X_OK) == False)):
+		cls()
+		dr = input("Please, choose the another path: ")
+
+if dr[-1] != '/': dr+='/'
 
 os.chdir(dr)
 if (os.path.exists("BIGOR_stable") == False):
@@ -21,15 +36,11 @@ if (os.path.exists("BIGOR_stable") == False):
 source = dr+"BIGOR_stable/App/my_site/bigor.bmstu.ru/"
 os.chdir(dr)
 
-pages = []
+
 url = 'http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou'
 html_text = requests.get(url).text
 soup = BeautifulSoup(html_text, 'lxml')
 
-def find(tag, cl):
-    links = soup.find_all(tag, class_ = cl)
-    for i in links:
-        pages.append('http://bigor.bmstu.ru'+i.get('href'))
 
 def fix_links(page):
     page = page.replace('/?cnt/?doc=OP2/', source+'cnt__doc_OP2_')
@@ -93,8 +104,8 @@ sh.move(source+'edit.html', dr+"BIGOR_stable")
 
 match platform.system():
     case "Windows":
-        print("Now you can open BIGOR. Open file edit.html in \"My documents/BIGOR_stable\" to start. Good luck!")
+        print(f"Now you can open BIGOR. Open file edit.html in \"{dr}BIGOR_stable\" to start. Good luck!")
     case "Linux":
-        print("Now you can open BIGOR. Open file edit.html in \"~/BIGOR_stable\" to start. Good luck!")
+        print(f"Now you can open BIGOR. Open file edit.html in \"{dr}BIGOR_stable\" to start. Good luck!")
 
 os.system("pause")

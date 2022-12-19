@@ -13,6 +13,9 @@ def find(tag, cl):
     for i in links:
         pages.append('http://bigor.bmstu.ru'+i.get('href'))
 
+if (platform.system() != "Windows" and platform.system() != "Linux"):
+    print(f"I'm sorry, but I can't work in {platform.system()}. Please, contact to my developer for further information!")
+    quit()
 dr = input("Hello! And welcome to BIGOR downloader. Choose the path, where we install BIGOR: ")
 if (dr == ''):
     match platform.system():

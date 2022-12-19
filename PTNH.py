@@ -5,7 +5,13 @@ import requests
 import os
 dr = os.getcwd()
 dr = dr.replace('\\','/')
+source = dr+"/App/my_site/bigor.bmstu.ru/"
 pages = []
+
+def find(tag, cl):
+    links = soup.find_all(tag, class_ = cl)
+    for i in links:
+        pages.append('http://bigor.bmstu.ru'+i.get('href'))
 
 def root_path(text):
 	x = os.path.abspath(os.sep)
@@ -15,18 +21,24 @@ def root_path(text):
 	else:
 		return text
 
+def fix_links(page):
+    page = page.replace('/?cnt/?doc=OP2/', source+'cnt__doc_OP2_')
+    page = page.replace('/?cou=OP2/OP_T','__cou_OP2_OP_T')
+    page = page.replace('.cou','.cou.html\"')
+    page = page.replace('gif.gif', 'gif')
+    page = page.replace('/?asr/',source+'asr_')
+    page = page.replace('./1557202953', source+'cnt__doc_OP2_OP_T.cou.html\"')
+    return page
+
 print("Loading main page...")
 
 url = 'http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou'
 html_text = requests.get(url).text
 soup = BeautifulSoup(html_text, 'lxml')
 
-links = soup.find_all('a', class_ = 'eLModul')
-for i in links:
-    pages.append('http://bigor.bmstu.ru'+i.get('href'))
-links = soup.find_all('a', class_ = 'eExtern')
-for i in links:
-    pages.append('http://bigor.bmstu.ru'+i.get('href'))
+find('a', 'eLModul')
+find('a', 'eExtern')
+find('a', 'eLTestMod')
 print("Links to pages added.")
 
 if (os.path.exists(root_path(dr)) == 0):
@@ -59,8 +71,6 @@ for i in pages:
 
 print("Pages successfully downloaded!")
 
-source = dr+"/App/my_site/bigor.bmstu.ru/"
-
 files = [f for f in os.listdir(source) if f.endswith('.gif.gif')]
 for i in range(len(files)):
     files[i] = files[i].replace('gif.gif', 'gif')
@@ -72,11 +82,7 @@ for i in files:
     HTMLFile = open(source+i, "r")
     soup = BeautifulSoup(HTMLFile.read(), 'lxml')
     page = soup.prettify()
-    page = page.replace('/?cnt/?doc=OP2/', source+'cnt__doc_OP2_')
-    page = page.replace('/?cou=OP2/OP_T.cou','__cou_OP2_OP_T.cou.html')
-    page = page.replace('cnt__doc_OP2_OP_T.cou','cnt__doc_OP2_OP_T.cou.html')
-    page = page.replace('gif.gif', 'gif')
-    page = page.replace('/?asr/',source+'asr_')
+    page = fix_links(page)
     with open(source+i, 'w', encoding="utf-8") as file:
         file.write(page)
     HTMLFile.close()

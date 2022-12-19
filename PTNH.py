@@ -100,6 +100,8 @@ for i in [f for f in os.listdir(source) if f.endswith('.html')]:
     HTMLFile.close()
 
 sh.copy(source+'cnt__doc_OP2_OP_T.cou.html', source+'edit.html')
+if os.path.isfile(source + 'edit.html'):
+	os.remove(dr+"BIGOR_stable/edit.html")
 sh.move(source+'edit.html', dr+"BIGOR_stable")
 
 match platform.system():
@@ -107,5 +109,5 @@ match platform.system():
         print(f"Now you can open BIGOR. Open file edit.html in \"{dr}BIGOR_stable\" to start. Good luck!")
     case "Linux":
         print(f"Now you can open BIGOR. Open file edit.html in \"{dr}BIGOR_stable\" to start. Good luck!")
-
+os.startfile(f"{dr}BIGOR_stable")
 os.system("pause")

@@ -23,4 +23,4 @@ python PTNH.py
   
 ![image info](https://i.ibb.co/kyj7262/2022-12-19-215252.png)
 
-All these problems (except last.. it's problem with encoding) will be fixed? but not today))
+All these problems (except last.. it's problem with encoding) will be fixed, but not today))

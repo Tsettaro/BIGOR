@@ -13,4 +13,4 @@ python PTNH.py
 ```
 **Process of downloading usually takes 5-6 minutes. If it takes longer, check your Internet connection or contact your ISP to resolve problems with Internet.**
 
-4. Your result will be near your python file
+4. Your result will be at "My documents/BIGOR_stable" (if Windows) or "/home/BIGOR_stable" (if Linux)

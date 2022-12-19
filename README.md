@@ -5,7 +5,7 @@
 1. Download PTNH.py and requirements.txt
 2. Download all requirements
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 3. Start this python file
 ``` 

@@ -21,9 +21,10 @@ if (os.path.exists("BIGOR_stable") == False):
 source = dr+"BIGOR_stable/App/my_site/bigor.bmstu.ru/"
 os.chdir(dr)
 
-
-
 pages = []
+url = 'http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou'
+html_text = requests.get(url).text
+soup = BeautifulSoup(html_text, 'lxml')
 
 def find(tag, cl):
     links = soup.find_all(tag, class_ = cl)
@@ -40,10 +41,6 @@ def fix_links(page):
     return page
 
 print("Loading main page...")
-
-url = 'http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou'
-html_text = requests.get(url).text
-soup = BeautifulSoup(html_text, 'lxml')
 
 find('a', 'eLModul')
 find('a', 'eExtern')
@@ -81,8 +78,8 @@ for i in range(len(files)):
     if (os.path.isfile(source+files[i]) == 0):
         os.rename(source+files[i]+'.gif', source+files[i])
 
-files = [f for f in os.listdir(source) if f.endswith('.html')]
-for i in files:
+
+for i in [f for f in os.listdir(source) if f.endswith('.html')]:
     HTMLFile = open(source+i, "r", encoding="utf-8")
     soup = BeautifulSoup(HTMLFile.read(), 'lxml')
     page = soup.prettify()

@@ -63,27 +63,27 @@ print("Links to pages added.")
 
 print("Download pages...")
 
-save_website(
-    url="http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou",
-    project_folder=dr+"BIGOR_stable/App/",
-    project_name="my_site",
-    bypass_robots=True,
-    debug=False,
-    open_in_browser=False,
-    delay=None,
-    threaded=False,
-)
-for i in pages:
-    save_website(
-    url=i,
-    project_folder=dr+"BIGOR_stable/App/",
-    project_name="my_site",
-    bypass_robots=True,
-    debug=False,
-    open_in_browser=False,
-    delay=None,
-    threaded=False,
-    )
+# save_website(
+#     url="http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou",
+#     project_folder=dr+"BIGOR_stable/App/",
+#     project_name="my_site",
+#     bypass_robots=True,
+#     debug=False,
+#     open_in_browser=False,
+#     delay=None,
+#     threaded=False,
+# )
+# for i in pages:
+#     save_website(
+#     url=i,
+#     project_folder=dr+"BIGOR_stable/App/",
+#     project_name="my_site",
+#     bypass_robots=True,
+#     debug=False,
+#     open_in_browser=False,
+#     delay=None,
+#     threaded=False,
+#     )
  
 print("Pages successfully downloaded!")
 files = [f for f in os.listdir(source) if f.endswith('.gif.gif')]
@@ -102,9 +102,9 @@ for i in [f for f in os.listdir(source) if f.endswith('.html')]:
         file.write(page)
     HTMLFile.close()
 
-sh.copy(source+'cnt__doc_OP2_OP_T.cou.html', source+'edit.html')
 if os.path.isfile(source + 'edit.html'):
-	os.remove(dr+"BIGOR_stable/edit.html")
+	os.remove(source+"edit.html")
+sh.copy(source+'cnt__doc_OP2_OP_T.cou.html', source+'edit.html')
 sh.move(source+'edit.html', dr+"BIGOR_stable")
 
 match platform.system():

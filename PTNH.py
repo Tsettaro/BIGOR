@@ -5,23 +5,38 @@ from pathlib import Path
 
 pages = []
 
+def save(link, folder):
+    save_website(
+    url=link,
+    project_folder=dr+folder,
+    project_name="my_site",
+    bypass_robots=True,
+    debug=False,
+    open_in_browser=False,
+    delay=None,
+    threaded=False,
+    )
+
+def sort(tag, source):
+    return [f for f in os.listdir(source) if f.endswith(tag)]
+
 def cls():
     os.system('cls' if platform.system()=='Windows' else 'clear')
 
-def find(tag, cl):
-    links = soup.find_all(tag, class_ = cl)
+def find(cl):
+    links = soup.find_all('a', class_ = cl)
     for i in links:
         pages.append('http://bigor.bmstu.ru'+i.get('href'))
 
 if (platform.system() != "Windows" and platform.system() != "Linux"):
     print(f"I'm sorry, but I can't work in {platform.system()}. Please, contact to my developer for further information!")
     quit()
+
 dr = input("Hello! And welcome to BIGOR downloader. Choose the path, where we install BIGOR: ")
 if (dr == ''):
     match platform.system():
         case "Windows":
-            dr = os.path.expanduser('~/Documents/')
-            dr = dr.replace('\\','/')
+            dr = os.path.expanduser('~/Documents/').replace('\\','/')
         case "Linux":
             dr = os.path.expanduser('~/')
 else:
@@ -56,34 +71,16 @@ def fix_links(page):
 
 print("Loading main page...")
 
-find('a', 'eLModul')
-find('a', 'eExtern')
-find('a', 'eLTestMod')
-print("Links to pages added.")
+find('eLModul')
+find('eExtern')
+find('eLTestMod')
 
+print("Links to pages added.")
 print("Download pages...")
 
-# save_website(
-#     url="http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou",
-#     project_folder=dr+"BIGOR_stable/App/",
-#     project_name="my_site",
-#     bypass_robots=True,
-#     debug=False,
-#     open_in_browser=False,
-#     delay=None,
-#     threaded=False,
-# )
-# for i in pages:
-#     save_website(
-#     url=i,
-#     project_folder=dr+"BIGOR_stable/App/",
-#     project_name="my_site",
-#     bypass_robots=True,
-#     debug=False,
-#     open_in_browser=False,
-#     delay=None,
-#     threaded=False,
-#     )
+save("http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou","BIGOR_stable/App/")
+for i in pages:
+    save(i, "BIGOR_stable/App/")
  
 print("Pages successfully downloaded!")
 files = [f for f in os.listdir(source) if f.endswith('.gif.gif')]
@@ -93,7 +90,7 @@ for i in range(len(files)):
         os.rename(source+files[i]+'.gif', source+files[i])
 
 
-for i in [f for f in os.listdir(source) if f.endswith('.html')]:
+for i in sort('html', source):
     HTMLFile = open(source+i, "r", encoding="utf-8")
     soup = BeautifulSoup(HTMLFile.read(), 'lxml')
     page = soup.prettify()

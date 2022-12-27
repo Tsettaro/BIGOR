@@ -5,6 +5,22 @@ from pathlib import Path
 
 pages = []
 
+def download(psr, link):
+    r = requests.get(link) 
+    soup = BeautifulSoup(r.text, 'lxml')
+    images = soup.select('img')
+    p = []
+    for i in range(len(images)):
+        p.append(images[i]['src'])
+    for i in p:
+        if i.endswith('.gif'):
+            continue
+        img = "http://bigor.bmstu.ru" + i
+        name = i.replace('/','_').replace('?','_').replace('=','_',1).replace('mod_','mod__').replace('___','__').replace('__k=','_k=')
+        with open(psr+name[6:], 'wb') as handler:
+            img_data = requests.get(img).content 
+            handler.write(img_data)
+
 def save(link, folder):
     save_website(
     url=link,
@@ -16,6 +32,7 @@ def save(link, folder):
     delay=None,
     threaded=False,
     )
+    download(dr+folder+"my_site/bigor.bmstu.ru/", link)
 
 def sort(tag, source):
     return [f for f in os.listdir(source) if f.endswith(tag)]
@@ -59,13 +76,12 @@ url = 'http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou'
 html_text = requests.get(url).text
 soup = BeautifulSoup(html_text, 'lxml')
 
-
 def fix_links(page):
-    page = page.replace('/?cnt/?doc=OP2/', source+'cnt__doc_OP2_')
+    page = page.replace('/?cnt/?doc=OP2/', source+'cnt__doc_OP2_').replace('doc=OP2/','doc_OP2_')
     page = page.replace('/?cou=OP2/OP_T','__cou_OP2_OP_T')
-    page = page.replace('.cou','.cou.html\"')
-    page = page.replace('gif.gif', 'gif')
-    page = page.replace('/?asr/',source+'asr_')
+    page = page.replace('.cou','.cou.html\"').replace('.mod_','.mod__').replace('___','__')
+    page = page.replace('gif.gif', 'gif').replace('/?frm/','/').replace('.png', '')
+    page = page.replace('/?asr/',source+'asr_').replace('/?img/', '/').replace('/?','_').replace('img_','').replace('n_','n=')
     page = page.replace('./1557202953', source+'cnt__doc_OP2_OP_T.cou.html\"')
     return page
 
@@ -81,7 +97,12 @@ print("Download pages...")
 save("http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou","BIGOR_stable/App/")
 for i in pages:
     save(i, "BIGOR_stable/App/")
- 
+    for images in os.listdir(source):
+        if images.endswith(".png"):
+            os.remove(os.path.join(source, images))
+
+
+
 print("Pages successfully downloaded!")
 files = [f for f in os.listdir(source) if f.endswith('.gif.gif')]
 for i in range(len(files)):

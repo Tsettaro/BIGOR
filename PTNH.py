@@ -1,9 +1,30 @@
+import scr
 from pywebcopy import save_website
 from bs4 import BeautifulSoup
 import os, shutil as sh, requests, platform
 from pathlib import Path
 
 pages = []
+
+def inp():
+    dr = input("Hello! And welcome to BIGOR downloader. Choose the path, where we install BIGOR: ")
+    match dr:
+        case '':
+            match platform.system():
+                case "Windows":
+                    dr = os.path.expanduser('~/Documents/').replace('\\','/')
+                case "Linux":
+                    dr = os.path.expanduser('~/')
+        case 'matrix':
+            scr.matrix()
+            return ''
+        case _:
+            while (os.path.exists(dr) == False or (os.access(dr, os.X_OK) == False)):
+                cls()
+                dr = input("Please, choose the another path: ")
+
+    if dr[-1] != '/': dr+='/'
+    return dr
 
 def download(psr, link):
     r = requests.get(link) 
@@ -49,20 +70,9 @@ if (platform.system() != "Windows" and platform.system() != "Linux"):
     print(f"I'm sorry, but I can't work in {platform.system()}. Please, contact to my developer for further information!")
     quit()
 
-dr = input("Hello! And welcome to BIGOR downloader. Choose the path, where we install BIGOR: ")
-if (dr == ''):
-    match platform.system():
-        case "Windows":
-            dr = os.path.expanduser('~/Documents/').replace('\\','/')
-        case "Linux":
-            dr = os.path.expanduser('~/')
-else:
-	while (os.path.exists(dr) == False or (os.access(dr, os.X_OK) == False)):
-		cls()
-		dr = input("Please, choose the another path: ")
-
-if dr[-1] != '/': dr+='/'
-
+dr = ''
+while (dr == ''):
+    dr = inp()
 os.chdir(dr)
 if (os.path.exists("BIGOR_stable") == False):
     os.mkdir("BIGOR_stable")

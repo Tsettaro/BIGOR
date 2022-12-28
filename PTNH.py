@@ -1,3 +1,4 @@
+import sys
 import scr
 from pywebcopy import save_website
 from bs4 import BeautifulSoup
@@ -5,6 +6,16 @@ import os, shutil as sh, requests, platform
 from pathlib import Path
 
 pages = []
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS # type: ignore
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 def inp():
     dr = input("Hello! And welcome to BIGOR downloader. Choose the path, where we install BIGOR: ")

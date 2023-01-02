@@ -1,10 +1,13 @@
 import sys
-import scr
+import scr, time
 from pywebcopy import save_website
 from bs4 import BeautifulSoup
 import os, shutil as sh, requests, platform
 from pathlib import Path
 
+if (platform.system() != "Windows" and platform.system() != "Linux"):
+    print(f"I'm sorry, but I can't work in {platform.system()}. Please, contact to my developer for further information!")
+    quit()
 pages = []
 
 def find(cl, soup):
@@ -84,10 +87,6 @@ def sort(tag, source):
 def cls():
     os.system('cls' if platform.system()=='Windows' else 'clear')
 
-if (platform.system() != "Windows" and platform.system() != "Linux"):
-    print(f"I'm sorry, but I can't work in {platform.system()}. Please, contact to my developer for further information!")
-    quit()
-
 dr = ''
 
 while (dr == ''):
@@ -110,13 +109,15 @@ def fix_links(page):
     page = page.replace('.cou','.cou.html\"').replace('.mod_','.mod__').replace('___','__')
     page = page.replace('gif.gif', 'gif').replace('/?frm/','/').replace('.png', '')
     page = page.replace('/?asr/',source+'asr_').replace('/?img/', '/').replace('/?','_').replace('img_','')
-    page = page.replace('./1557202953', source+'cnt__doc_OP2_OP_T.cou.html\"').replace('__n_','__n=').replace('.mod_n=','.mod__n=')
+    page = page.replace('./1557202953', source+'cnt__doc_OP2_OP_T.cou.html\"').replace('__n_','__n=').replace('.mod_n=','.mod__n=').replace('frm_','').replace('__k_', '_k=')
     return page
 
-print("Loading main page...")
+print("Loading pages...")
 setup('http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou')
 setup('http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_P.cou')
+time.sleep(2.5)
 print("Links to pages added.")
+time.sleep(2.5)
 print("Download pages...")
 
 save("http://bigor.bmstu.ru/?cnt/?doc=OP2/OP_T.cou","BIGOR_stable/App/")
@@ -149,10 +150,10 @@ if os.path.isfile(source + 'edit.html'):
 sh.copy(source+'cnt__doc_OP2_OP_T.cou.html', source+'edit.html')
 sh.move(source+'edit.html', dr+"BIGOR_stable")
 
+print(f"Now you can open BIGOR. Open file edit.html in \"{dr}BIGOR_stable\" to start. Good luck!")
 match platform.system():
     case "Windows":
-        print(f"Now you can open BIGOR. Open file edit.html in \"{dr}BIGOR_stable\" to start. Good luck!")
+        os.system("pause")
+        os.startfile(f"{dr}BIGOR_stable")
     case "Linux":
-        print(f"Now you can open BIGOR. Open file edit.html in \"{dr}BIGOR_stable\" to start. Good luck!")
-os.startfile(f"{dr}BIGOR_stable")
-os.system("pause")
+        os.system("read -n1 -r -p \"Press any key to continue...\" key")

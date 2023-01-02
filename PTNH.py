@@ -1,5 +1,5 @@
 import sys
-import scr, time
+import matrix, time
 from pywebcopy import save_website
 from bs4 import BeautifulSoup
 import os, shutil as sh, requests, platform
@@ -35,7 +35,7 @@ def inp():
                 case "Linux":
                     dr = os.path.expanduser('~/')
         case 'matrix':
-            scr.matrix()
+            matrix.matrix()
             return ''
         case _:
             while (os.path.exists(dr) == False or (os.access(dr, os.X_OK) == False)):
